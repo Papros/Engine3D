@@ -34,12 +34,31 @@ public class ModelMainClass {
 	}
 	
 	public void moveCamera(int x,int y,int z) {
-		cam1.setPosition( cam1.getvPosition().getX()+ x*speed, cam1.getvPosition().getY()+y*speed, cam1.getvPosition().getZ()+z*speed );
+		//cam1.setPosition( cam1.getvPosition().getX()+ x*speed, cam1.getvPosition().getY()+y*speed, cam1.getvPosition().getZ()+z*speed );
+		
+		if(z != 0) forward(z);
+		else if(x != 0) leftRight(x);
+		else if(y != 0) updown(y);
+		
 		repaint();
 	}
 	
   	 
-	 public void repaint() {
+	 private void leftRight(int x) {
+		Vector3 leftright = Vector3.cross_product( cam1.getvUp(), cam1.getvLookDir() );
+		if(x >0) cam1.setvPosition( Vector3.vector_add(cam1.getvPosition(), leftright ));
+		else cam1.setvPosition(Vector3.vector_sub(cam1.getvPosition(), leftright));
+		repaint();
+		
+	}
+	 
+	 private void updown(int y) {
+			if(y >0) cam1.setvPosition( Vector3.vector_add(cam1.getvPosition(), cam1.getvUp() ));
+			else cam1.setvPosition(Vector3.vector_sub(cam1.getvPosition(), cam1.getvUp()));
+			repaint();
+	 }
+
+	public void repaint() {
 	 dev.refresh();
 	 view.display(dev.getBufferedImage());
 

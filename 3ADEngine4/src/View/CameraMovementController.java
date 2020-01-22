@@ -21,9 +21,9 @@ public class CameraMovementController implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_W: view.moveCamera(0,0,1);break;
-		case KeyEvent.VK_A: view.moveCamera(-1,0,0);  break;
+		case KeyEvent.VK_A: view.moveCamera(1,0,0);  break;
 		case KeyEvent.VK_S: view.moveCamera(0,0,-1);  break;
-		case KeyEvent.VK_D: view.moveCamera(1,0,0); break;
+		case KeyEvent.VK_D: view.moveCamera(-1,0,0); break;
 		case KeyEvent.VK_E: view.moveCamera(0,-1,0);  break;
 		case KeyEvent.VK_Q: view.moveCamera(0,1,0); break;
 		

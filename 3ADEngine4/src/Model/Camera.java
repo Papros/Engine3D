@@ -25,11 +25,11 @@ public class Camera {
 		vLookDir = new Vector3(0,0,1);
 		vTarget = new Vector3(0,0,0);
 		vUp = new Vector3(0,1,0);
-		double angle = 0.7;
-		double dYaw = 0.0;
-		double dTheta = 0.0;
-		double dFar = 100.0;
-		double dNear = 0.01;
+		angle = 0.9;
+		dYaw = 0.0;
+		dTheta = 0.0;
+		dFar = 100.0;
+		dNear = 0.5;
 	}
 	
 
